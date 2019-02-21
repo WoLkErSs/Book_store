@@ -20,7 +20,7 @@
                 %p.lead.small
                   =t('homepage.book_authors')
                 .general-align
-                  %button.disabled.btn
+                  %button.btn{ class: ('disabled' if book.quantity.zero?) }
                     =t('homepage.buy_btn')
     %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
       %span.icon-prev{'aria-hidden': "true"}
@@ -37,8 +37,7 @@
     .mb-res-50
       %p
         =t('homepage.middle_part.info')
-    %button.btn.btn-default
-      =t('homepage.middle_part.start_btn')
+    = link_to "Get Started", 'category', class:"btn btn-default"
   .mb-35
     %h3
       =t('homepage.best_sellers.title')
@@ -62,4 +61,7 @@
             %p.title.mr-55
               =book.description
           %span.divider-sm
-          %p.lead.small John Horton
+          %p.lead.small
+            -book.authors.each do |author|
+              =author.name
+              %br/

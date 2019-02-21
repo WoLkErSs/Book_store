@@ -5,6 +5,5 @@ class MainpageController < ApplicationController
   def homepage
     @new_books = Book.last(LAST_BOOKS_QUANTITY)
     @best_sellers = Book.first(BEST_SELLERS_QUANTITY)
-    @author =
   end
 end

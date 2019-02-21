@@ -13,3 +13,5 @@ en:
       start_btn: 'Get Started'
     best_sellers:
       title: 'Best Sellers'
+  categories:
+    all: 'All'

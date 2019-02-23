@@ -1,5 +1,6 @@
 require 'pry'
 class CategoriesController < ApplicationController
+    include Pagy::Backend
     # before_action :make_selection
     before_action :set
 
@@ -19,13 +20,11 @@ class CategoriesController < ApplicationController
     end
 
     def index
-      # @filter = params[:selection] ? params[:selection] : 'created_at_desc'
-      @books = Book.all.selection_by_order(@filters.key(@current_filter).to_s)
+      @pagy, @books = pagy(Book.all.selection_by_order(@filters.key(@current_filter).to_s), items: 12)
     end
 
     def show
-      # @filter = params[:selection] ? params[:selection] : 'created_at_desc'
-      @books = Book.where(category_id: params[:id]).selection_by_order(@filters.key(@current_filter).to_s)
+      @pagy, @books = pagy(Book.where(category_id: params[:id]).selection_by_order(@filters.key(@current_filter).to_s))
     end
 
     private

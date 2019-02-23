@@ -76,4 +76,6 @@
                 =author.name
                 %br/
     .text-center
-      %button.btn.btn-primary View More
+      = pagy_nav(@pagy).html_safe
+      -# = pagy_nav_bootstrap(@pagy).html_safe
+      -# %button.btn.btn-primary View More

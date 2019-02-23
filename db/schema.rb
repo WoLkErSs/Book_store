@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 2019_02_20_074518) do
     t.float "price"
     t.string "image_name"
     t.string "description"
-    t.decimal "quantity"
+    t.integer "quantity"
+    t.integer "sold"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 

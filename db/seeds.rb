@@ -18,6 +18,7 @@ categories = Category.all
                     description: Faker::Lorem.paragraph(5),
                     quantity: rand(0..10),
                     category_id: categories.sample.id,
+                    sold: rand(0..10),
                     image_name: random_image)
   book.authors << Author.all.sample(rand(1..2))
 end

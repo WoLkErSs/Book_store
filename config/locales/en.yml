@@ -13,5 +13,8 @@ en:
       start_btn: 'Get Started'
     best_sellers:
       title: 'Best Sellers'
-  categories:
-    all: 'All'
+  catalog:
+    title: 'Catalog'
+    all_categories: 'All'
+    categories_title_xs: 'Filter by category'
+    filters_title_xs: 'Sort by'

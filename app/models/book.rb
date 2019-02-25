@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   scope :selection_by_order, -> (order_filter) { public_send(order_filter) }
 
   scope :created_at_desc, -> () { order('created_at DESC') }
-  scope :popular_desc, -> () { order('used DESC') }
+  scope :popular_desc, -> () { order('sold DESC') }
   scope :price_asc, -> () { order('price ASC') }
   scope :price_desc, -> () { order('price DESC') }
   scope :title_asc, -> () { order('title ASC') }

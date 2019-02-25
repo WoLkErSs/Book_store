@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root 'mainpage#homepage'
 
   resources :posts
-  resources :categories
-  resources :pages
   resources :books
+  resources :pages
 end

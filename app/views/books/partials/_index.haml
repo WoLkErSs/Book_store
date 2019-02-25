@@ -4,16 +4,16 @@
   .hidden-xs.clearfix
     .dropdowns.pull-right
       .dropdown.width-240
-        =render partial: 'categories/partials/dropdown_filters'
+        =render partial: 'books/partials/dropdown_filters'
     %ul.list-inline.pt-10.mb-25.mr-240
       %li.mr-35
-        = link_to categories_path, class: 'filter-link' do
+        = link_to books_path, class: 'filter-link' do
           = t(:'catalog.all_categories')
           %span.badge.general-badge
             = @books_all
       - @categories.each do |category|
         %li.mr-35
-          = link_to category_path(category.id), class: 'filter-link' do
+          = link_to books_path(category: category), class: 'filter-link' do
             = category.title
             %span.badge.general-badge
               = category.books.count
@@ -27,12 +27,12 @@
       %ul.dropdown-menu
         -@categories.each do |category|
           %li
-            = link_to category_path(category.id), class: 'filter-link' do
+            = link_to books_path(filter: category), class: 'filter-link' do
               = category.title
     %p.lead.small.mb-10
       = t(:'catalog.filters_title_xs')
     .dropdown
-      =render partial: 'categories/partials/dropdown_filters'
+      =render partial: 'books/partials/dropdown_filters'
   .mb-120
     .row
       -@books.each do |book|
@@ -42,7 +42,7 @@
               =image_tag( book.image_name, alt: 'design-book', class: 'img-shadow general-thumbnail-img')
               .thumb-hover
                 .general-thumb-link-wrap
-                  %a.thumb-hover-link{href: "#"}
+                  = link_to book_path(book), class: 'thumb-hover-link' do
                     %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
                   %a.thumb-hover-link{href: "#"}
                     %i.fa.fa-shopping-cart.thumb-icon

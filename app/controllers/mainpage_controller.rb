@@ -3,7 +3,7 @@ class MainpageController < ApplicationController
   BEST_SELLERS_IN_CATEGORY = 1
 
   def homepage
-    @new_books = Book.last(LAST_BOOKS_QUANTITY)
     @best_sellers = BooksBestSellersService.new(BEST_SELLERS_IN_CATEGORY).call
+    @new_books = Book.last(LAST_BOOKS_QUANTITY)
   end
 end

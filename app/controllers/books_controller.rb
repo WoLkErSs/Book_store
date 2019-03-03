@@ -2,13 +2,16 @@ require 'pry'
 class BooksController < ApplicationController
   BOOKS_PER_PAGE = 12
   include Pagy::Backend
-  before_action :default_selection
+  before_action :default_selection, only: [:index]
+  decorates_assigned :book
 
   def index
     @pagy, @books = pagy(GetBooksByCategoryService.new(params[:category], @current_filter).call, items: BOOKS_PER_PAGE)
   end
 
-  def show;end
+  def show
+    @book = Book.find_by(id: params[:id])
+  end
 
   private
 

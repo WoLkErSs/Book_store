@@ -1,12 +1,12 @@
 %main.container
-  = link_to books_path, class: 'general-back-link' do
+  = link_to :back, class: 'general-back-link' do
     %i.fa.fa-long-arrow-left.mr-15
     Back to results
   .row
     .col-sm-6
       .product-gallery
         .mb-20
-          %img.img-responsive{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+          = image_tag( book.image_name, alt: 'design-book', class: 'img-responsive')
         .images.clearfix
           %a.img-link{href: "#"}
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
@@ -15,24 +15,30 @@
           %a.img-link{href: "#"}
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
-      %h1.mt-res-0 Real-Life Responsive Web Design
-      %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
+      %h1.mt-res-0
+        = book.title
+      %p.lead.small
+        = book.authors_all
       .row
-        .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10 €32.90
-        .col-xs-5.col-md-3
-          .input-group.general-position
-            %a.input-link{href: "#"}
-              %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input{type: "text"}
-            %a.input-link{href: "#"}
-              %i.fa.fa-plus.line-height-40
-        .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position Add to Cart
+        = form_with url: order_items_path, method: :post do |form|
+          .col-xs-12.col-md-4
+            %p.h1.in-gold-500.mt-10
+              =t(:'book.price', price: book.price)
+          .col-xs-5.col-md-3
+            .input-group.general-position
+              %a.input-link.pt-7#minus
+                %i.fa.fa-minus.line-height-40
+              = form.hidden_field :book_id, value: book.id
+              = form.text_field :quantity, value: 1, class: "form-control quantity-input book-quantity-js"
+              %a.input-link.pt-7#plus
+                %i.fa.fa-plus.line-height-40
+          .col-xs-7.col-md-5
+            = form.submit 'Add to card', class: "btn btn-default pull-right general-position"
       .general-info-wrap.divider-lg
-        %p Description
+        %p
+          = t(:'book.desc_title')
         %p.lead.small.line-height-2
-          Smashing Book 5: Real-Life Responsive Web Design is our brand new, upcoming book with smart front-end techniques and design patterns derived from real-life responsive projects. With 13 chapters on responsive workflow, SVG, Flexbox, Web fonts, responsive images, responsive email, content strategy, debugging ...
+          = book.description
           %a.in-gold-500.ml-10{href: "#"} Read More
       .general-info-wrap.divider-lg
         .clearfix

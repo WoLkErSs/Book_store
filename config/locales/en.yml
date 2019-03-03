@@ -18,3 +18,6 @@ en:
     all_categories: 'All'
     categories_title_xs: 'Filter by category'
     filters_title_xs: 'Sort by'
+  book:
+    price: "€ %{price}"
+    desc_title: 'Description'

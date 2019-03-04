@@ -19,5 +19,12 @@ en:
     categories_title_xs: 'Filter by category'
     filters_title_xs: 'Sort by'
   book:
+    material_title: 'Materials'
+    materials: "%{material}"
+    params: "H:%{height}\" x W: %{width}\" x D: %{depth}"
+    dimensions: 'Dimensions'
+    etc: '...'
+    release: 'Year of publication'
     price: "€ %{price}"
-    desc_title: 'Description'
+    description_title: 'Description'
+    read_more: 'Read more'

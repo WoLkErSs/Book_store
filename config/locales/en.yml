@@ -28,3 +28,11 @@ en:
     price: "€ %{price}"
     description_title: 'Description'
     read_more: 'Read more'
+    review: 'Write a Review'
+    score: 'Score'
+  review:
+    title: 'Title'
+    body_field: 'Review'
+    btn_name: 'Post'
+    reviews_title: 'Reviews (%{amount})'
+    date_review: "%{day}/%{month}/%{year}"

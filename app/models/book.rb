@@ -2,8 +2,8 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :authors
 
   belongs_to :category
-  has_many :order_items
-
+  has_many :order_items, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   scope :selection_by_order, -> (order_filter) { public_send(order_filter) }
 

@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5.2.0'
 gem 'jbuilder', '~> 2.5'
 gem "haml-rails", "~> 1.0"
+gem 'presenter-rails'
 gem 'faker', require: false
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

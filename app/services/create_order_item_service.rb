@@ -7,6 +7,6 @@ class CreateOrderItemService
   end
 
   def call
-    OrderItem.create(order_id: @order.id, book_id: @book_id, quantity: @quantity)
+    OrderItem.create(order_id: @order.id, book_id: @book_id, quantity: @quantity) if @order
   end
 end
